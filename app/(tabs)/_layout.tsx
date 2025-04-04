@@ -1,38 +1,72 @@
 import { Tabs } from 'expo-router';
-
 import Ionicons from '@expo/vector-icons/Ionicons';
-
+import { paperTheme } from '@/assets/styles/colors';
 
 export default function TabLayout() {
+  const appName = 'BudgetGood';
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#ffd33d',
+        tabBarActiveTintColor: paperTheme.colors.primary,
         headerStyle: {
-          backgroundColor: '#25292e',
+          backgroundColor: paperTheme.colors.background,
         },
         headerShadowVisible: false,
-        headerTintColor: '#fff',
+        headerTintColor: paperTheme.colors.text,
         tabBarStyle: {
-        backgroundColor: '#25292e',
+          backgroundColor: paperTheme.colors.background,
         },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: appName,
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'home-sharp' : 'home-outline'} color={color} size={24} />
+            <Ionicons
+              name={focused ? 'home-sharp' : 'home-outline'}
+              color={color}
+              size={24}
+            />
           ),
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="analytics"
         options={{
-          title: 'About',
+          title: 'Analytics',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'information-circle' : 'information-circle-outline'} color={color} size={24}/>
+            <Ionicons
+              name={focused ? 'bar-chart-sharp' : 'bar-chart-outline'}
+              color={color}
+              size={24}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="accounts"
+        options={{
+          title: 'Accounts',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? 'card' : 'card-outline'}
+              color={color}
+              size={24}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="transactions"
+        options={{
+          title: 'Transactions',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? 'list-circle-sharp' : 'list-circle-outline'}
+              color={color}
+              size={24}
+            />
           ),
         }}
       />
